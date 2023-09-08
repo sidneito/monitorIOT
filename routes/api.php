@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Rota para a página de detalhes de máquinas no painel de administração
+Route::get('/admin/maquinas/{id}', 'AdminController@detalhesMaquina')->name('admin.detalhes_maquina');
+
+// Rota para a API de recebimento de dados das máquinas
+Route::post('/api/machines', 'MachineController@receberDados')->name('api.receber_dados');
+
